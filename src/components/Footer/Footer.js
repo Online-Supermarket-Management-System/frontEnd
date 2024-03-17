@@ -1,4 +1,14 @@
 import "./Footer.css";
+import Button from 'react-bootstrap/Button';
+
+
+
+import iconfacebook from "../../Icons/iconfacebook.png"
+import iconx from "../../Icons/icons8-x-50.png"
+import icontiktok from "../../Icons/icons8-tiktok-48.png"
+import iconinsta from "../../Icons/icons8-instagram-48.png"
+
+import Form from 'react-bootstrap/Form';
 
 const Footer = () => {
   return (
@@ -15,10 +25,16 @@ const Footer = () => {
               </div>
               <div className="get-10-off">Get 10% off your first order</div>
             </div>
-            <div className="send-mail">
-              <div className="enter-your-email">Enter your email</div>
+            {/* <div className="send-mail">
+              <input className="enter-your-email" placeholder="Enter your email"></input>
               <img className="icon-send" alt="" src="/iconsend.svg" />
-            </div>
+            </div> */}
+            <Form.Control
+              type="email"
+              id="inputPassword5"
+              aria-describedby="passwordHelpBlock"
+              placeholder="Enter your email"
+            />
           </div>
           <div className="support-parent">
             <div className="support">Support</div>
@@ -56,24 +72,60 @@ const Footer = () => {
               <div className="terms-of-use">Terms Of Use</div>
               <div className="faq">FAQ</div>
               <div className="contact">Contact</div>
+              <div className="mask-master">
+              <div className = "social-icon-con">
+              <img
+                className="icon-facebook"
+                loading="lazy"
+                alt=""
+                src={iconfacebook}
+              />
+              </div>
+              <div className = "social-icon-con">
+              <img
+                className="icon-twitter"
+                loading="lazy"
+                alt=""
+                src={iconx}
+              />
+              </div>
+              <div className = "social-icon-con">
+              <img
+                className="icon-instagram"
+                loading="lazy"
+                alt=""
+                src={iconinsta}
+              />
+              </div>
+              {/* <div className = "social-icon-con">
+              <img
+                className="icon-linkedin"
+                loading="lazy"
+                alt=""
+                src={icontiktok}
+              />
+              </div> */}
+            </div>
+            
             </div>
           </div>
           <div className="layer-stack-parent">
             <div className="layer-stack">
-              <div className="download-app">Download App</div>
+              <div className="download-app">Are you here to access the admin features?  </div>
               <div className="save-3-with-app-new-user-only-parent">
                 <div className="save-3-with">
-                  Save 200rs with App New User Only
+                <Button variant="outline-light">Access to the Admin panel</Button>{' '}
                 </div>
+
                 <div className="proximity-prober">
-                  <img
+                  {/* <img
                     className="qr-code-icon"
                     loading="lazy"
                     alt=""
                     src="/qr-code@2x.png"
-                  />
+                  /> */}
                   <div className="transform-transformer">
-                    <img
+                    {/* <img
                       className="googleplay-icon"
                       loading="lazy"
                       alt=""
@@ -84,37 +136,37 @@ const Footer = () => {
                       loading="lazy"
                       alt=""
                       src="/appstore@2x.png"
-                    />
+                    /> */}
                   </div>
                 </div>
               </div>
             </div>
-            <div className="mask-master">
+            {/* <div className="mask-master">
               <img
                 className="icon-facebook"
                 loading="lazy"
                 alt=""
-                src="/iconfacebook.svg"
+                src={iconfacebook}
               />
               <img
                 className="icon-twitter"
                 loading="lazy"
                 alt=""
-                src="/icontwitter.svg"
+                src={iconx}
               />
               <img
                 className="icon-instagram"
                 loading="lazy"
                 alt=""
-                src="/iconinstagram.svg"
+                src={iconinsta}
               />
               <img
                 className="icon-linkedin"
                 loading="lazy"
                 alt=""
-                src="/iconlinkedin.svg"
+                src={icontiktok}
               />
-            </div>
+            </div> */}
           </div>
         </div>
       </div>
@@ -127,14 +179,14 @@ const Footer = () => {
         />
         <div className="shape-library">
           <div className="icon-copyright-parent">
-            <img
+            {/* <img
               className="icon-copyright"
               loading="lazy"
               alt=""
-              src="/iconcopyright.svg"
-            />
+              
+            /> */}
             <div className="copyright-rimel-2022">
-              Copyright Northway Supermart. All right reserved
+            &copy; Copyright Northway Supermart. All right reserved
             </div>
           </div>
         </div>

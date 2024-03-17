@@ -107,4 +107,17 @@
       display: none;
     }
   }
-  
+  /* Styling the select element */
+.dropdown-icon {
+  padding-right: 30px; /* Add padding on the right side for the icon */
+  border: 1px solid #ccc; /* Add a border for better visibility */
+  border-radius: 5px; /* Add border radius for rounded corners */
+  padding: 5px 10px; /* Add padding inside the select element */
+  font-size: 16px; /* Set the font size */
+  cursor: pointer; /* Change cursor to pointer on hover */
+}
+
+/* Styling the options */
+.dropdown-icon option {
+  padding: 5px 10px; /* Add padding inside each option */
+}
