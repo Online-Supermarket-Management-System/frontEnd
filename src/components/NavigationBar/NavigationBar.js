@@ -28,7 +28,7 @@ const NavigationBar = () => {
         <nav className="depth-4-frame-02">
           <div className="depth-5-frame-015">
             <div className="depth-6-frame-015">
-              <div className="home">Home</div>
+              <a className="home" href="/">Home</a>
             </div>
           </div>
           <div className="depth-5-frame-11">
@@ -43,12 +43,12 @@ const NavigationBar = () => {
           </div>
           <div className="depth-5-frame-3">
             <div className="depth-6-frame-018">
-              <div className="login1">Login</div>
+              <a className="login1" href="/login">Login</a>
             </div>
           </div>
           <div className="depth-5-frame-4">
             <div className="depth-6-frame-019">
-              <div className="register">Register</div>
+              <a className="register" href="/Register">Register</a>
             </div>
           </div>
         </nav>
