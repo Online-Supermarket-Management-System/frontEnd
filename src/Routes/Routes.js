@@ -21,7 +21,8 @@ const routes = {
             path: "/register",
             component: <Register/>,
             type: "",
-        }
+         }
+        
     ]
 }
 

@@ -1,9 +1,27 @@
 import "./Login.css";
 
+import Form from "react-bootstrap/Form";
+import Button from 'react-bootstrap/Button';
+
 const Login = () => {
   // const login = () => {
 
   // }
+
+  const renderInputField = (label, type) => {
+    return (
+      <div className="depth-6-frame-01">
+        <div className="depth-7-frame-01">
+          <div className="email">Email</div>
+        </div>
+        <Form.Control
+          placeholder={label}
+          className="depth-7-frame-12"
+          type={type}
+        />
+      </div>
+    );
+  };
 
   return (
     <div className="login">
@@ -30,40 +48,12 @@ const Login = () => {
               </div>
               <div className="depth-4-frame-2">
                 <div className="depth-5-frame-02">
-                  <div className="depth-6-frame-01">
-                    <div className="depth-7-frame-01">
-                      <div className="email">Email</div>
-                    </div>
-                    <div className="depth-7-frame-1">
-                      <div className="depth-8-frame-0">
-                        <div className="depth-9-frame-0">
-                          <div className="depth-10-frame-0">
-                            <div className="johndoegmailcom">
-                              johndoe@gmail.com
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
+                  {renderInputField("Email", "email")}
                 </div>
               </div>
               <div className="depth-4-frame-3">
                 <div className="depth-5-frame-03">
-                  <div className="depth-6-frame-02">
-                    <div className="depth-7-frame-02">
-                      <div className="password">Password</div>
-                    </div>
-                    <div className="depth-7-frame-11">
-                      <div className="depth-8-frame-01">
-                        <div className="depth-9-frame-01">
-                          <div className="depth-10-frame-01">
-                            <div className="div">**********</div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
+                {renderInputField("Password", "password")}
                 </div>
               </div>
               <div className="depth-4-frame-4">
@@ -72,13 +62,14 @@ const Login = () => {
                 </div>
               </div>
               <div className="depth-4-frame-5">
-                <div className="depth-5-frame-05">
+                {/* <div className="depth-5-frame-05">
                   <div className="depth-6-frame-03">
                     <div className="depth-7-frame-03">
-                      <b className="log-in" >Log in</b>
+                      <b className="log-in">Log in</b>
                     </div>
                   </div>
-                </div>
+                </div> */}
+                <Button variant="outline-success" style = {{width: "100%"}}>Log in</Button>{' '}
               </div>
               <div className="depth-4-frame-6">
                 <div className="depth-5-frame-06">

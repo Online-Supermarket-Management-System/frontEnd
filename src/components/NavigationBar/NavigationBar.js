@@ -63,7 +63,7 @@ const NavigationBar = () => {
           <div className="depth-5-frame-12">
             <div className="depth-6-frame-021">
               <div className="depth-7-frame-017">
-                <img className="vector-01" alt="" src={iconuser} />
+                <img class="vector-01" alt="google.com" src={iconuser} />
                 <div className="depth-8-frame-011" />
               </div>
             </div>
