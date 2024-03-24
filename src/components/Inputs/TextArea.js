@@ -1,7 +1,7 @@
 import React from "react";
 import Form from "react-bootstrap/Form";
 
-const TextArea = ({label, type}) => {
+const TextArea = ({label, type, value, onChange}) => {
   return (
     <div className="depth-6-frame-05">
       <div className="depth-7-frame-06">
@@ -13,6 +13,9 @@ const TextArea = ({label, type}) => {
         placeholder={label}
         className="depth-7-frame-14"
         type={type}
+        required
+        value={value}
+        onChange={onChange}
       />
     </div>
   );

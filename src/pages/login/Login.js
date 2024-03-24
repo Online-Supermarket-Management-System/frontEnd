@@ -1,14 +1,34 @@
+import { useState } from 'react';
 import "./Login.css";
 
 import Form from "react-bootstrap/Form";
 import Button from 'react-bootstrap/Button';
 
 const Login = () => {
-  // const login = () => {
+  const [validated, setValidated] = useState(false);
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
-  // }
+  const handleSubmit = (event) => {
+    const form = event.currentTarget;
+    
+    if (form.checkValidity() === false) {
+      event.preventDefault();
+      event.stopPropagation();
+    }
 
-  const renderInputField = (label, type) => {
+    setValidated(true);
+  };
+
+  const handleEmailChange = (event) => {
+    setEmail(event.target.value);
+  }
+
+  const handlePasswordChange = (event) => {
+    setPassword(event.target.value);
+  }
+
+  const renderInputField = (label, type, onChange, value) => {
     return (
       <div className="depth-6-frame-01">
         <div className="depth-7-frame-01">
@@ -18,12 +38,16 @@ const Login = () => {
           placeholder={label}
           className="depth-7-frame-12"
           type={type}
+          required
+          onChange={onChange}
+          value={value}
         />
       </div>
     );
   };
 
   return (
+    <Form noValidate validated={validated} onSubmit={handleSubmit}>
     <div className="login">
       <main className="depth-0-frame-0">
         <section className="depth-1-frame-0">
@@ -48,12 +72,12 @@ const Login = () => {
               </div>
               <div className="depth-4-frame-2">
                 <div className="depth-5-frame-02">
-                  {renderInputField("Email", "email")}
+                  {renderInputField("Email", "email", handleEmailChange, email)}
                 </div>
               </div>
               <div className="depth-4-frame-3">
                 <div className="depth-5-frame-03">
-                {renderInputField("Password", "password")}
+                {renderInputField("Password", "password", handlePasswordChange, password)}
                 </div>
               </div>
               <div className="depth-4-frame-4">
@@ -69,7 +93,9 @@ const Login = () => {
                     </div>
                   </div>
                 </div> */}
-                <Button variant="outline-success" style = {{width: "100%"}}>Log in</Button>{' '}
+                <Button variant="outline-success" style = {{width: "100%"}} onClick={handleSubmit}>
+                  Log in
+                </Button>{' '}
               </div>
               <div className="depth-4-frame-6">
                 <div className="depth-5-frame-06">
@@ -83,6 +109,7 @@ const Login = () => {
         </section>
       </main>
     </div>
+    </Form>
   );
 };
 

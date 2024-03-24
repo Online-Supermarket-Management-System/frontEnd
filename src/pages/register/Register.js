@@ -9,20 +9,68 @@ import InputSelect from "../../components/Inputs/InputSelect";
 import Button from 'react-bootstrap/Button';
 
 const RegistrationCopy = () => {
-  const [privacy, setPrivacy] = useState(
-    "I agree to the Terms of Use and Privacy Policy"
-  );
-  const [accepted, setAccepted] = useState(false);
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [address, setAddress] = useState("");
+  const [postalCode, setPostalCode] = useState("");
+  const [city, setCity] = useState("");
+  const [contactNumber, setContactNumber] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+  const [validated, setValidated] = useState(false);
+  const [ch, setCh] = useState(false);
 
-  const changePrivacy = () => {
-    if (!accepted) {
-      setPrivacy("Terms and privacy policy accepted.");
-    } else {
-      setPrivacy("I agree to the Terms of Use and Privacy Policy");
+  const handleFirstNameChange = (event) => {
+    setFirstName(event.target.value);
+  }
+
+  const handleLastNameChange = (event) => {
+    setLastName(event.target.value);
+  }
+
+  const handleAddressChange = (event) => {
+    setAddress(event.target.value);
+  }
+
+  const handlePostalCodeChange = (event) => {
+    setPostalCode(event.target.value);
+  }
+
+  const handleCityChange = (event) => {
+    setCity(event.target.value);
+  }
+
+  const handleContactNumberChange = (event) => {
+    setContactNumber(event.target.value);
+  }
+
+  const handleEmailChange = (event) => {  
+    setEmail(event.target.value);
+  }
+
+  const handlePasswordChange = (event) => {
+    setPassword(event.target.value);
+  }
+
+  const handleConfirmPasswordChange = (event) => { 
+    setConfirmPassword(event.target.value);
+  }
+
+  const handleCheckboxChange = (event) => {
+    setCh(event.target.checked);
+  }
+
+  const handleSubmit = (event) => {
+    const form = event.currentTarget;
+
+    if (form.checkValidity() === false) {
+      event.preventDefault();
+      event.stopPropagation();
     }
 
-    setAccepted(!accepted);
-  };
+    setValidated(true);
+  }
 
   // const renderInputField = (label, type) => {
   //   return (
@@ -66,6 +114,7 @@ const RegistrationCopy = () => {
   // };
 
   return (
+    <Form noValidate validated={validated} onSubmit={handleSubmit}>
     <div className="registration-copy">
       <div className="logic-gate"></div>
       <main className="instance-parent">
@@ -88,59 +137,59 @@ const RegistrationCopy = () => {
             <div className="frame-group">
               <div className="frame-container">
                 <div className="depth-6-frame-0-parent">
-                  <InputField label={"First Name"} type={"text"} />
-                  <InputField label={"Last Name"} type={"text"} />
+                  <InputField label={"First Name"} type={"text"} value={firstName} onChange={handleFirstNameChange}/>
+                  <InputField label={"Last Name"} type={"text"} value={lastName} onChange={handleLastNameChange}/>
                 </div>
               </div>
               <div className="depth-4-frame-31">
                 <div className="depth-5-frame-07">
-                  <TextArea label = {"Address"} type={"text"}/>
+                  <TextArea label = {"Address"} type={"text"} value={address} onChange={handleAddressChange}/>
                 </div>
               </div>
               <div className="frame-div">
                 <div className="depth-6-frame-0-group">
-                  <InputSelect label={"City"} options={["Jaffna"]}/>
-                  <InputSelect label={"State"} options={["Northern"]}/>
+                  <InputField label={"Postal Code"} type={"text"} value={postalCode} onChange={handlePostalCodeChange}/>
+                  <InputSelect label={"City"} options={["Jaffna"]} value={city} onChange={handleCityChange}/>
+                  {/* <InputSelect label={"State"} options={["Northern"]}/> */}
                 </div>
               </div>
               <div className="depth-4-frame-5-parent">
                 <div className="depth-4-frame-51">
                   <div className="depth-5-frame-08">
-                    <InputField label={"Contact Number"} type={"number"} />
+                    <InputField label={"Contact Number"} type={"number"} value={contactNumber} onChange={handleContactNumberChange}/>
                   </div>
                 </div>
                 <div className="depth-4-frame-61">
                   <div className="depth-5-frame-09">
-                    <InputField label={"Email"} type={"email"} />
+                    <InputField label={"Email"} type={"email"} value={email} onChange={handleEmailChange}/>
                   </div>
                 </div>
                 <div className="depth-4-frame-7">
                   <div className="depth-5-frame-010">
-                    <InputField label={"Password"} type={"password"} />
+                    <InputField label={"Password"} type={"password"} value={[password]} onChange={handlePasswordChange}/>
                   </div>
                 </div>
                 <div className="depth-4-frame-8">
                   <div className="depth-5-frame-011">
-                    <InputField label={"Confirm Password"} type={"password"} />
+                    <InputField label={"Confirm Password"} type={"password"} value={confirmPassword} onChange={handleConfirmPasswordChange}/>
                   </div>
                 </div>
               </div>
               <div
-                className={
-                  accepted
-                    ? "depth-5-frame-0-wrapper-accepted"
-                    : "depth-5-frame-0-wrapper"
-                }
+                className="depth-5-frame-0-wrapper"
               >
-                <div className="depth-5-frame-012">
+                {/* <div className="depth-5-frame-012">
                   <div className="depth-6-frame-011">
                     <div className="depth-7-frame-013">
-                      <div className="i-agree-to" onClick={changePrivacy}>
+                      <div className="i-agree-to" >
+                        <Form.Check.Input type={"checkbox"} isValid />
                         {privacy}
                       </div>
                     </div>
                   </div>
-                </div>
+                </div> */}
+                <Form.Check.Input type={"checkbox"} isValid style = {{marginRight: "5px"}} onChange={handleCheckboxChange} value={ch}/>
+                I agree to the Terms of Use and Privacy Policy
               </div>
               <div className="depth-4-frame-10-parent">
                 <div className="depth-4-frame-10">
@@ -151,7 +200,9 @@ const RegistrationCopy = () => {
                       </div>
                     </div>
                   </div> */}
-                  <Button variant="outline-success" style = {{width: "100%"}}>Create Account</Button>{' '}
+                  <Button variant="outline-success" style = {{width: "100%"}} onClick={handleSubmit}>
+                    Create Account
+                  </Button>{' '}
                 </div>
                 
                 <div className="already-registered-log-in-wrapper">
@@ -165,6 +216,7 @@ const RegistrationCopy = () => {
         </section>
       </main>
     </div>
+    </Form>
   );
 };
 
